@@ -11,6 +11,9 @@ inputs:
   dist-folder:
     description: 'files needed for Deploying'
     required: true
+outputs: 
+  website-url:
+    description: 'url of the deployed website'
 runs: 
   using: 'node20'
   main: 'main.js'

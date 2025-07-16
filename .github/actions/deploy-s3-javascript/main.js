@@ -16,7 +16,10 @@ function run() {
     const s3URL = `s3://${bucket}`;
     exec.exec(`aws s3 sync ${distFolder} ${s3URL} --region ${bucketRegion}`);
 
-    core.notice('Hello from my custom JavaSbript action!');
+    // generate website URL
+    const websiteURL = `http://${bucket}.s3-website-${bucketRegion}.amazonaws.com`;
+    // prints the url
+    core.setOutput('website-url', websiteURL);
 }
 
 run();
