@@ -63,6 +63,7 @@ jobs:
       - name: Output contents
         run: ls
       - name: Deploy site
+        id: pageDeploy
         uses: ./.github/actions/deploy-s3-javascript
         env: 
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID}}
@@ -71,3 +72,6 @@ jobs:
           bucket: bw-custom-action-hosting
           dist-folder: ./dist
           bucket-region: eu-central-1
+      - name: Output information - url
+        run: |
+          echo "Live URL: ${{ steps.pageDeploy.outputs.website-url }}"
