@@ -14,7 +14,7 @@ function run() {
     // here we use aws CLI
 
     const s3URL = `s3://${bucket}`;
-    exec.exec(`aws s3 sync ${distFolder} ${s3URL} --region${bucketRegion}`);
+    exec.exec(`aws s3 sync ${distFolder} ${s3URL} --region ${bucketRegion}`);
 
     core.notice('Hello from my custom JavaSbript action!');
 }
